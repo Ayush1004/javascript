@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TO-DO LIST</title>
+</head>
+
+<body>
+    <h1>To-Do list</h1>
+    <input type="text" id="n" placeholder="Add task">
+    <button type="button" onclick="add()">Add</button>
+    <ul id="list">
+        <li>Mail policies</li>
+        <li>Make travel plans</li>
+        <li>Buy shoes</li>
+        <li>Mxcvcs</li>
+        <li>Mavcbxcv</li>
+        <li>dcfdr</li>
+    </ul>
+    <script type="text/javascript">
+        var myNodelist = document.getElementsByTagName("LI");
+        var i;
+        for (i = 0; i < myNodelist.length; i++) {
+            var span = document.createElement("SPAN");
+            var txt = document.createTextNode("\u00D7");
+            span.className = "close";
+            span.appendChild(txt);
+            myNodelist[i].appendChild(span);
+        }
+
+        // Click on a close button to hide the current list item
+        var close = document.getElementsByClassName("close");
+        var i;
+        for (i = 0; i < close.length; i++) {
+            close[i].onclick = function() {
+                var div = this.parentElement;
+                div.style.display = "none";
+            }
+        }
+
+        function add() {
+            var li = document.createElement("li");
+            var x = document.getElementById("n").value;
+            var t = document.createTextNode(x);
+            li.appendChild(t);
+            if (x === '') {
+                alert("You must write something!");
+            } else {
+                document.getElementById("list").appendChild(li);
+            }
+            document.getElementById("n").value = "";
+            var span = document.createElement("SPAN");
+            var txt = document.createTextNode("\u00D7");
+            span.className = "close";
+            span.appendChild(txt);
+            li.appendChild(span);
+
+            for (i = 0; i < close.length; i++) {
+                close[i].onclick = function() {
+                    var div = this.parentElement;
+                    div.style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

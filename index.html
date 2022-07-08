@@ -1,0 +1,60 @@
+<html>
+
+<head>
+    <title>Calculator</title>
+    <!---<script type="text/javascript">
+      function submit_form() {
+        var a = document.getElementById('h-1').value;
+        var b = document.getElementById('h-2').value;
+        if (isNaN(a) === true) {
+          alert('Please Enter a Number');
+        }
+        if (isNaN(b) === true) {
+          alert('Please Enter a Number');
+        }
+        a = parseInt(a);
+        b = parseInt(b);
+        let result = 0;
+        if (document.getElementById('h-3').checked == true) {
+          result = a + b;
+          document.getElementById('h-8').innerHTML = 'Result - ' + result;
+        } else if (document.getElementById('h-4').checked == true) {
+          result = a - b;
+          document.getElementById('h-8').innerHTML = 'Result - ' + result;
+        } else if (document.getElementById('h-5').checked == true) {
+          result = a / b;
+          document.getElementById('h-8').innerHTML = 'Result - ' + result;
+        } else if (document.getElementById('h-6').checked == true) {
+          result = a * b;
+          document.getElementById('h-8').innerHTML = 'Result - ' + result;
+        } else {
+          document.getElementById('h-9').innerHTML =
+            'Select an operation to perform!!';
+        }
+      }
+    </script>--->
+    <script src="index.js"></script>
+</head>
+
+<body>
+    <form>
+        <label for="html">Please enter first number :</label>
+        <input type="text" id="h-1" name="first_num"><br>
+        <label for="html">Please enter Second number :</label>
+        <input type="text" id="h-2" name="second_num"><br>
+        <input type="radio" id="h-3" name="op">
+        <label for="html">Addition</label><br>
+        <input type="radio" id="h-4" name="op">
+        <label for="html">Subraction</label><br>
+        <input type="radio" id="h-5" name="op">
+        <label for="html">Division</label><br>
+        <input type="radio" id="h-6" name="op">
+        <label for="html">Multiplication</label><br>
+        <button type="button" onclick="submit_form()">Calculate</button>
+        <input type="reset" value="Reset"></input>
+    </form>
+    <h3 id='h-8'></h3>
+    <h3 id='h-9'></h3>
+</body>
+
+</html>

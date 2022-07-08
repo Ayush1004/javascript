@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leverage Calculator</title>
+</head>
+
+<body>
+    <h1>Leverage Calculator</h1>
+    <label>Enter Principal:  </label>
+    <input type="number" id="pr" placeholder="<=1000000" required><br>
+    <button type="button" onclick="calc(this)" id="1" value="2">X2</button>
+    <button type="button" onclick="calc(this)" id="2" value="5">X5</button>
+    <button type="button" onclick="calc(this)" id="3" value="10">X10</button>
+    <div id="after"></div>
+    <div id="interest"></div>
+    <script type="text/javascript">
+        function calc(button) {
+            var p = parseInt(document.getElementById("pr").value);
+            if (p > 1000000) {
+                alert("Principal should be <= 1000000");
+            } else {
+                if (button.id == "1") {
+                    var cal = p * 2;
+                    var i = document.getElementById("after")
+                    i.innerHTML = "<h2>Stop Loss: " + cal + "</h2><label>Select Interest Rate: </label><br><button type=' button' onclick='calci(" + cal + "," + p + ",this)' id='5'>%5</button><button type=' button' onclick='calci(" + cal + "," + p + ",this)' id='10'>%10</button>";
+
+                } else if (button.id == "2") {
+                    var cal = p * 5;
+                    var i = document.getElementById("after")
+                    i.innerHTML = "<h2>Stop Loss: " + cal + "</h2><label>Select Interest Rate: </label><br><button type=' button' onclick='calci(" + cal + "," + p + ",this)' id='5'>%5</button><button type=' button' onclick='calci(" + cal + "," + p + ",this)' id='10'>%10</button>";
+                } else if (button.id == "3") {
+                    var cal = p * 10;
+                    var i = document.getElementById("after")
+                    i.innerHTML = "<h2>Stop Loss: " + cal + "</h2><label>Select Interest Rate: </label><br><button type=' button' onclick='calci(" + cal + "," + p + ",this)' id='5'>%5</button><button type=' button' onclick='calci(" + cal + "," + p + ",this)' id='10'>%10</button>";
+                } else {
+                    alert("Re try");
+                }
+            }
+
+        }
+
+        function calci(cal, p, button) {
+            if (button.id == "5") {
+                var i = cal * 5 / 100;
+                var t = document.getElementById("interest")
+                t.innerHTML = "<h2>Interest earned: " + i + "</h2>";
+                var ti = i / p * 100;
+                t.innerHTML = t.innerHTML + "<h2>Interest earned on principal: " + ti + "%</h2>";
+            } else if (button.id == "10") {
+                var i = cal * 10 / 100;
+                var t = document.getElementById("interest")
+                t.innerHTML = "<h2>Interest earned: " + i + "</h2>";
+                var ti = i / p * 100;
+                t.innerHTML = t.innerHTML + "<h2>Interest earned on principal: " + ti + "%</h2>";
+            } else {
+                alert("Re-try");
+            }
+        }
+    </script>
+</body>
+
+</html>
